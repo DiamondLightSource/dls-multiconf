@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.1.
+# ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
 # ********** For repository_name dls-multiconf
 
 import json
@@ -102,4 +102,4 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 
-# dae_devops_fingerprint 73c58a4ef040657506c7957a60579f0d
+# dae_devops_fingerprint 4493bb05d3ee131e63073fb0a9cdf4ee

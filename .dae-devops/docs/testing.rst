@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.5.1.
+.. # ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
 .. # ********** For repository_name dls-multiconf
 
 Testing
@@ -35,4 +35,4 @@ This allows peeking in there to see what's been written by the test.
     
 
 
-.. # dae_devops_fingerprint b0784488c4fd56ceabc0a7879999393b
+.. # dae_devops_fingerprint 588c0a0fbbae4a9bf3382ea8bfa3d5a8

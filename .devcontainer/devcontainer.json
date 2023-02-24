@@ -1,5 +1,5 @@
 // ********** Please don't edit this file!
-// ********** It has been generated automatically by dae_devops version 0.5.1.
+// ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
 // ********** For repository_name dls-multiconf
 
 // For format details, see https://containers.dev/implementors/json_reference/
@@ -57,4 +57,4 @@
     "postCreateCommand": "pip install -e .[dev]"
 }
 
-// dae_devops_fingerprint aaf4a342222b36384070e5461de58676
+// dae_devops_fingerprint 8150cfeb7991c56cdd30f3ea534a386c

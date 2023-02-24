@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.1.
+# ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
 # ********** For repository_name dls-multiconf
 
 name: Link Check
@@ -27,4 +27,4 @@ jobs:
       - name: Check links
         run: tox -e docs build -- -b linkcheck
 
-# dae_devops_fingerprint 824712c5c23055c45796060fe022ab92
+# dae_devops_fingerprint 8b82582937b1bc3d00cfb2e2cb67e788

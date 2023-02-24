@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.5.1.
+.. # ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
 .. # ********** For repository_name dls-multiconf
 
 Naming conventions
@@ -31,4 +31,4 @@ repository
     lowercase, hyphens
 
 
-.. # dae_devops_fingerprint 14dfe5744b7858abf93de6b7c1e2ec02
+.. # dae_devops_fingerprint 35c261b723fee7382d8184d5e900ed4c
