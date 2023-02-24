@@ -13,4 +13,6 @@ primary:
     dependencies:
         - type: pypi
           list:
+              # TODO: remmove dls_logformatter from main dependencies and add only for pytest.
+              - dls_logformatter
               - ruamel.yaml

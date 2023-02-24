@@ -23,19 +23,19 @@ logger = logging.getLogger(__name__)
 __default_dls_multiconf = None
 
 
-def dls_multiconfs_set_default(dls_multiconf):
+def multiconfs_set_default(dls_multiconf):
     global __default_dls_multiconf
     __default_dls_multiconf = dls_multiconf
 
 
-def dls_multiconfs_get_default():
+def multiconfs_get_default():
     global __default_dls_multiconf
     if __default_dls_multiconf is None:
-        raise RuntimeError("dls_multiconfs_get_default instance is None")
+        raise RuntimeError("multiconfs_get_default instance is None")
     return __default_dls_multiconf
 
 
-def dls_multiconfs_has_default():
+def multiconfs_has_default():
     global __default_dls_multiconf
     return __default_dls_multiconf is not None
 

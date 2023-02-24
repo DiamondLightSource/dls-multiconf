@@ -1,9 +1,20 @@
 ===========================
-dls_multiconf
+dls-multiconf
 ===========================
 
 Python class for runtime configuration coordinating multiple services.
 
+
+Converting from old Configurator usage:
+- in project.yaml depedencies add dls_multiconf
+- from src delete configurators directory
+- from tests delete test_configurator.py
+- change all xchembku_lib.configurators.configurators to dls_multiconf_lib.multiconfs
+- change all Configurators to Multiconfs
+- change all xchembku_configurators_set_default to multiconfs_set_default
+- change all configurator to multiconf
+- change all "xchembku_lib.xchembku_multiconfs.yaml" to MulticonfThingTypes
+- add from dls_multiconf_lib.constants import ThingTypes as MulticonfThingTypes
 
 ---------------------------
 Table of contents
