@@ -1,0 +1,88 @@
+type: dls_multiconf_lib.dls_multiconf_contexts.classic
+
+logging_settings:
+    console:
+        enabled: True
+        verbose: False
+    logfile:
+        enabled: True
+        directory: dls_multiconf
+    graypy:
+        enabled: False
+        host: 172.23.7.128
+        port: 12201
+        protocol: UDP
+
+# The external access bits.
+external_access_bits:
+    dls_servbase_database_filename: &DLS_BILLY_DATABASE_FILENAME ${CWD}/dls_servbase_dataface.sqlite
+    database_filename: &DATABASE_FILENAME ${CWD}/dls_multiconf.sqlite
+    dls_servbase_dataface_server: &DLS_BILLY_DATAFACE_SERVER http://*:27620
+    dls_servbase_dataface_client: &DLS_BILLY_DATAFACE_CLIENT http://localhost:27620
+    dataface_server: &ECHOLOCATOR_DATAFACE_SERVER http://*:27621
+    dataface_client: &ECHOLOCATOR_DATAFACE_CLIENT http://localhost:27621
+    collector_server: &COLLECTOR_SERVER http://*:27627
+    collector_client: &COLLECTOR_CLIENT http://localhost:27627
+    dls_multiconf_gui_server: &ECHOLOCATOR_GUI_SERVER http://*:27622
+    dls_multiconf_gui_client: &ECHOLOCATOR_GUI_CLIENT http://127.0.0.1:27622
+
+# The dls_servbase_dataface client/server composite.
+dls_servbase_dataface_specification: &DLS_BILLY_DATAFACE_SPECIFICATION
+    type: "dls_servbase_lib.datafaces.aiohttp"
+    type_specific_tbd:
+        # The remote dataface server access.
+        aiohttp_specification:
+            server: *DLS_BILLY_DATAFACE_SERVER
+            client: *DLS_BILLY_DATAFACE_CLIENT
+        # The local implementation of the dataface.
+        actual_dataface_specification:
+            type: "dls_servbase_lib.datafaces.aiosqlite"
+            database:
+                type: "dls_servbase_lib.databases.aiosqlite"
+                filename: *DLS_BILLY_DATABASE_FILENAME
+                log_level: "WARNING"
+
+# The dls_multiconf_dataface client/server composite.
+dls_multiconf_dataface_specification: &ECHOLOCATOR_DATAFACE_SPECIFICATION
+    type: "dls_multiconf_lib.dls_multiconf_datafaces.aiohttp"
+    type_specific_tbd:
+        # The remote dls_multiconf_dataface server access.
+        aiohttp_specification:
+            server: *ECHOLOCATOR_DATAFACE_SERVER
+            client: *ECHOLOCATOR_DATAFACE_CLIENT
+        # The local implementation of the dls_multiconf_dataface.
+        actual_dls_multiconf_dataface_specification:
+            type: "dls_multiconf_lib.dls_multiconf_datafaces.aiosqlite"
+            database:
+                type: "dls_multiconf_lib.dls_multiconf_databases.aiosqlite"
+                filename: *DATABASE_FILENAME
+                log_level: "WARNING"
+
+# The dls_multiconf_collector which scans for incoming images.
+dls_multiconf_collector_specification:
+    type: "dls_dls_multiconf_lib.dls_multiconf_collectors.aiohttp"
+    type_specific_tbd:
+        aiohttp_specification:
+            server: *COLLECTOR_SERVER
+            client: *COLLECTOR_CLIENT
+        actual_collector_specification:
+            type: dls_dls_multiconf_lib.dls_multiconf_collectors.scrape_to_database
+            type_specific_tbd:
+                directories:
+                    - ${CWD}/example_images
+                recursive: True
+
+# The dls_multiconf_gui specification.
+dls_multiconf_gui_specification:
+    type: "dls_multiconf_lib.dls_multiconf_guis.aiohttp"
+    type_specific_tbd:
+        # The remote dls_multiconf_gui server access.
+        aiohttp_specification:
+            server: *ECHOLOCATOR_GUI_SERVER
+            client: *ECHOLOCATOR_GUI_CLIENT
+            cookie_specification:
+                type: "dls_servbase_lib.cookies.dataface"
+                type_specific_tbd:
+                    dataface_specification: *DLS_BILLY_DATAFACE_SPECIFICATION
+    # The dataface which the gui talks to.
+    dls_multiconf_dataface_specification: *ECHOLOCATOR_DATAFACE_SPECIFICATION
