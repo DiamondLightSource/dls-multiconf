@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
+# ********** It has been generated automatically by dae_devops version 0.5.2.
 # ********** For repository_name dls-multiconf
 
 from pathlib import Path
@@ -197,4 +197,4 @@ def setup(app):
     app.connect("source-read", ultimateReplace)
 
 
-# dae_devops_fingerprint 53d5863617f78d4febb9003cc142acee
+# dae_devops_fingerprint 769f250d273a328f7b66b8d2eb431b46

@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
+# ********** It has been generated automatically by dae_devops version 0.5.2.
 # ********** For repository_name dls-multiconf
 
 name: Code CI
@@ -212,4 +212,4 @@ jobs:
         with:
           password: ${{ secrets.PYPI_TOKEN }}
 
-# dae_devops_fingerprint 55171d27893dc43837f444d86a0c9b3c
+# dae_devops_fingerprint 379400a6dfd693219f421db57650bca7

@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
+# ********** It has been generated automatically by dae_devops version 0.5.2.
 # ********** For repository_name dls-multiconf
 
 # This file is for use as a devcontainer and a runtime container
@@ -40,4 +40,4 @@ ENV PATH=/venv/bin:$PATH
 ENTRYPOINT ["dls-multiconf"]
 CMD ["--version"]
 
-# dae_devops_fingerprint 8ef481d9f44ceecc5feb1fcc70792b7e
+# dae_devops_fingerprint c7ac185f71fb2b2304567f865a445412

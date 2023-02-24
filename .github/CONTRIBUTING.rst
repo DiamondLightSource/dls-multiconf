@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
+.. # ********** It has been generated automatically by dae_devops version 0.5.2.
 .. # ********** For repository_name dls-multiconf
 
 Contributing to the project
@@ -38,4 +38,4 @@ should follow.
 
 .. _Developer Guide: https://diamondlightsource.github.io/dls-multiconf/main/developer/how-to/contribute.html
 
-.. # dae_devops_fingerprint 67dd3126b005e0ea020778093a1b3e21
+.. # dae_devops_fingerprint 065b3f86ae49b8d788d6db584389e946

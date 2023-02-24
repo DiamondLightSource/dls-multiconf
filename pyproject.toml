@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
+# ********** It has been generated automatically by dae_devops version 0.5.2.
 # ********** For repository_name dls-multiconf
 
 [build-system]
@@ -16,7 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 description = "Python class for runtime configuration coordinating multiple services."
-dependencies = ["dls_logformatter", "ruamel.yaml"]
+dependencies = ["dls_utilpack", "dls_logformatter", "ruamel.yaml"]
 dynamic = ["version"]
 license.file = "LICENSE"
 readme = "README.rst"
@@ -102,4 +102,4 @@ source = ["src", "**/site-packages/"]
 [tool.tox]
 legacy_tox_ini = "[tox]\nskipsdist=True\n\n[testenv:{pre-commit,mypy,pytest,docs}]\n# Don't create a virtualenv for the command, requires tox-direct plugin\ndirect = True\npassenv = *\nallowlist_externals = \n    pytest \n    pre-commit\n    mypy\n    sphinx-build\n    sphinx-autobuild\ncommands =\n    pytest: pytest {posargs}\n    mypy: mypy src tests {posargs}\n    pre-commit: pre-commit run --all-files {posargs}\n    docs: sphinx-{posargs:build -EW --keep-going} -T docs build/html\n"
 
-# dae_devops_fingerprint d5647020de32335d01eec901c62459d9
+# dae_devops_fingerprint 6da9831caa0e359d39aa9f783dbf2586

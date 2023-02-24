@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
+.. # ********** It has been generated automatically by dae_devops version 0.5.2.
 .. # ********** For repository_name dls-multiconf
 
 Installing
@@ -40,4 +40,4 @@ You can check the version that has been installed by typing::
     $ dls-multiconf --version
     $ dls-multiconf --version-json
 
-.. # dae_devops_fingerprint a44efbd11f3aebca4f2b698257246e6e
+.. # dae_devops_fingerprint 3b5a52a8c1797768583c719aac1d0135

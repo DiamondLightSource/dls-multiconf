@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
+.. # ********** It has been generated automatically by dae_devops version 0.5.2.
 .. # ********** For repository_name dls-multiconf
 
 Developing
@@ -36,4 +36,4 @@ If you plan to modify the docs, you will need to::
     
 
 
-.. # dae_devops_fingerprint a5b0956363cb5c5ff22819146e22c205
+.. # dae_devops_fingerprint 5531bdf85a6fcdd66b8769b273d51cd0

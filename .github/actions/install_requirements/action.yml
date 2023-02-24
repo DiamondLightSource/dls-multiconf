@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.2.dev0+g83ac02a.d20230224.
+# ********** It has been generated automatically by dae_devops version 0.5.2.
 # ********** For repository_name dls-multiconf
 
 name: Install requirements
@@ -61,4 +61,4 @@ runs:
       shell: bash
 
 
-# dae_devops_fingerprint 0db9f83af49bf7050d6b4d15f497643f
+# dae_devops_fingerprint bc5d084db7c421490501e03b7d30eb1d
