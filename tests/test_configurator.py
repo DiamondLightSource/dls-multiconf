@@ -11,6 +11,7 @@ from dls_utilpack.describe import describe
 
 # Configurator.
 from dls_multiconf_lib.configurators import Configurators
+from dls_multiconf_lib.constants import ThingTypes
 
 # Environment variables with some extra functionality.
 from dls_multiconf_lib.envvar import Envvar
@@ -42,7 +43,7 @@ class TestConfiguratorDirectGood:
 
         # This is the object type we want to run the test on.
         specification = {
-            "type": "dls_multiconf_lib.dls_multiconf_configurators.yaml",
+            "type": ThingTypes.YAML,
             "type_specific_tbd": {"filename": yaml_filename},
         }
 
@@ -61,14 +62,14 @@ class TestConfiguratorDirectBad:
         )
         BadConfiguratorDirectTester("RuntimeError", "unable to instantiate").main(
             constants,
-            {"type": "dls_multiconf_lib.dls_multiconf_configurators.yaml"},
+            {"type": ThingTypes.YAML},
             output_directory,
         )
 
         # Another yaml file.
         bad_yaml_filename = f"{output_directory}/configuration.bad.yml"
         specification = {
-            "type": "dls_multiconf_lib.dls_multiconf_configurators.yaml",
+            "type": ThingTypes.YAML,
             "type_specific_tbd": {"filename": bad_yaml_filename},
         }
 

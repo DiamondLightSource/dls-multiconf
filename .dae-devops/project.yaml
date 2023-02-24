@@ -9,7 +9,7 @@ primary:
     project_urls:
         GitLab: https://github.com/diamondlightsource/dls-multiconf
     project_scripts:
-        dls_multiconf: "dls_multiconf_lib.__main__:main"
+        dls-multiconf: "dls_multiconf_lib.__main__:main"
     dependencies:
         - type: pypi
           list:

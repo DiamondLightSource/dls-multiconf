@@ -9,6 +9,8 @@ from dls_utilpack.require import require
 # Class managing list of things.
 from dls_utilpack.things import Things
 
+from dls_multiconf_lib.constants import ThingTypes
+
 # Environment variables with some extra functionality.
 from dls_multiconf_lib.envvar import Envvar
 
@@ -74,8 +76,8 @@ class Configurators(Things):
     def lookup_class(self, class_type):
         """"""
 
-        if class_type == "dls_multiconf_lib.dls_multiconf_configurators.yaml":
-            from dls_multiconf_lib.configurators.yaml import Yaml
+        if class_type == ThingTypes.YAML:
+            from dls_multiconf_lib.yaml import Yaml
 
             return Yaml
 
@@ -107,7 +109,7 @@ class Configurators(Things):
 
         dls_multiconf_configurator = self.build_object(
             {
-                "type": "dls_multiconf_lib.dls_multiconf_configurators.yaml",
+                "type": ThingTypes.YAML,
                 "type_specific_tbd": {"filename": configurator_filename},
             }
         )

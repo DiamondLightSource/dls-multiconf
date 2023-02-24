@@ -11,7 +11,8 @@ from dls_utilpack.require import require
 from dls_utilpack.substitute import substitute_string
 
 # Base class which maps flask requests to methods.
-from dls_multiconf_lib.configurators.base import Base
+from dls_multiconf_lib.base import Base
+from dls_multiconf_lib.constants import ThingTypes
 
 # Exceptions.
 from dls_multiconf_lib.exceptions import NotFound
@@ -19,7 +20,7 @@ from dls_multiconf_lib.exceptions import NotFound
 logger = logging.getLogger(__name__)
 
 
-thing_type = "dls_multiconf_lib.dls_multiconf_configurators.yaml"
+thing_type = ThingTypes.YAML
 
 
 class DottedTemplate(Template):

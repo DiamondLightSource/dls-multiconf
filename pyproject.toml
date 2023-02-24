@@ -50,7 +50,7 @@ docs = [
 ]
 
 [project.scripts]
-dls_multiconf = "dls_multiconf_lib.__main__:main"
+dls-multiconf = "dls_multiconf_lib.__main__:main"
 
 [project.urls]
 GitLab = "https://github.com/diamondlightsource/dls-multiconf/dls-multiconf"
@@ -101,4 +101,4 @@ source = ["src", "**/site-packages/"]
 [tool.tox]
 legacy_tox_ini = "[tox]\nskipsdist=True\n\n[testenv:{pre-commit,mypy,pytest,docs}]\n# Don't create a virtualenv for the command, requires tox-direct plugin\ndirect = True\npassenv = *\nallowlist_externals = \n    pytest \n    pre-commit\n    mypy\n    sphinx-build\n    sphinx-autobuild\ncommands =\n    pytest: pytest {posargs}\n    mypy: mypy src tests {posargs}\n    pre-commit: pre-commit run --all-files {posargs}\n    docs: sphinx-{posargs:build -EW --keep-going} -T docs build/html\n"
 
-# dae_devops_fingerprint 7e7e18bfb5303a30eaa5680ac197c6c5
+# dae_devops_fingerprint 4ba35f774d5a0a2256447fa8078ac9b1
