@@ -9,8 +9,6 @@ import yaml
 # Utilities.
 from dls_utilpack.describe import describe
 
-# Configurator.
-from dls_multiconf_lib.configurators import Configurators
 from dls_multiconf_lib.constants import ThingTypes
 
 # Environment variables with some extra functionality.
@@ -18,6 +16,9 @@ from dls_multiconf_lib.envvar import Envvar
 
 # Exceptions.
 from dls_multiconf_lib.exceptions import NotFound
+
+# Configurator.
+from dls_multiconf_lib.multiconfs import Multiconfs
 
 logger = logging.getLogger(__name__)
 
@@ -171,16 +172,16 @@ class GoodConfiguratorDirectTester(Base):
         """ """
 
         # Build the object of the type we want to test.
-        dls_multiconf_configurator = Configurators().build_object(specification)
+        multiconf = Multiconfs().build_object(specification)
 
         # Perform symbol replacement.
-        dls_multiconf_configurator.substitute({"output_directory": output_directory})
+        multiconf.substitute({"output_directory": output_directory})
 
         # Remove top level key of this name.
-        dls_multiconf_configurator.remove(["key_to_remove"])
+        multiconf.remove(["key_to_remove"])
 
         # Get the current dict representation of the configuration.
-        current = await dls_multiconf_configurator.load()
+        current = await multiconf.load()
 
         # Check the symbol has been replaced.
         assert current["output_directory"] == output_directory
@@ -189,21 +190,19 @@ class GoodConfiguratorDirectTester(Base):
         assert "key_to_remove" not in current
 
         # Extract multilevel value.
-        value = dls_multiconf_configurator.require("multi.level1.level2")
+        value = multiconf.require("multi.level1.level2")
         assert value == "value_at_level2"
 
         # Check a good error on non-existence of key.
         with pytest.raises(NotFound):
-            value = dls_multiconf_configurator.require("multi.level1.level3")
+            value = multiconf.require("multi.level1.level3")
 
         # Check a good error on non-existence of key.
         with pytest.raises(NotFound):
-            value = dls_multiconf_configurator.require("multi.level1.level2.level3")
+            value = multiconf.require("multi.level1.level2.level3")
 
         # Substitute in token.
-        value = dls_multiconf_configurator.resolve(
-            "${output_directory}/${multi.level1.level2}"
-        )
+        value = multiconf.resolve("${output_directory}/${multi.level1.level2}")
         assert value == f"{output_directory}/value_at_level2"
 
 
@@ -223,14 +222,12 @@ class BadConfiguratorDirectTester(Base):
         got_exception = None
         try:
             # Build the object of the type we want to test.
-            dls_multiconf_configurator = Configurators().build_object(specification)
+            multiconf = Multiconfs().build_object(specification)
 
             # Load the configuration fromt the source provider.
-            await dls_multiconf_configurator.load()
+            await multiconf.load()
 
-            logger.info(
-                describe("loaded yaml", dls_multiconf_configurator.get_current())
-            )
+            logger.info(describe("loaded yaml", multiconf.get_current()))
         except Exception as exception:
             got_exception = exception
 
@@ -250,7 +247,7 @@ class GoodConfigurationEnvTester(Base):
         """ """
 
         # Define the configuration source.
-        Configurators().build_object_from_environment(environ=environ)
+        Multiconfs().build_object_from_environment(environ=environ)
 
 
 # ----------------------------------------------------------------------------------------
@@ -270,7 +267,7 @@ class BadConfigurationEnvTester(Base):
         try:
 
             # Define the configuration source.
-            Configurators().build_object_from_environment(environ=environ)
+            Multiconfs().build_object_from_environment(environ=environ)
 
         except Exception as exception:
             # logger.error("expected error", exc_info=exception)
