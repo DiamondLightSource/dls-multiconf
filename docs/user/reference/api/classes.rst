@@ -1,5 +1,5 @@
 Classes
 =======================================================================
 
-.. autoclass:: dls_multiconf_lib.configurators.Multiconfs
+.. autoclass:: dls_multiconf_lib.multiconfs.Multiconfs
     :members:
