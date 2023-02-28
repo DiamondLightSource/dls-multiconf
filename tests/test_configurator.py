@@ -103,7 +103,7 @@ class TestGoodConfigurationEnv:
 
         # ---------------------------------------------------
         environ = {
-            Envvar.ECHOLOCATOR_CONFIGFILE: good_config_filename,
+            Envvar.MULTICONF_CONFIGFILE: good_config_filename,
         }
         GoodConfigurationEnvTester().main(constants, environ, output_directory)
 
@@ -116,7 +116,7 @@ class TestBadConfigurationEnv:
         # Run the bad tests in a coroutine.
 
         BadConfigurationEnvTester(
-            "RuntimeError", "ECHOLOCATOR_CONFIGFILE is not set"
+            "RuntimeError", "MULTICONF_CONFIGFILE is not set"
         ).main(
             constants,
             {},
@@ -126,7 +126,7 @@ class TestBadConfigurationEnv:
         BadConfigurationEnvTester("RuntimeError", "does_not_exist.yaml").main(
             constants,
             {
-                Envvar.ECHOLOCATOR_CONFIGFILE: "does_not_exist.yaml",
+                Envvar.MULTICONF_CONFIGFILE: "does_not_exist.yaml",
             },
             output_directory,
         )

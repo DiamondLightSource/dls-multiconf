@@ -85,9 +85,7 @@ class Multiconfs(Things):
     def build_object_from_environment(self, environ=None):
 
         # Get the explicit name of the config file.
-        dls_multiconf_configfile = Envvar(
-            Envvar.ECHOLOCATOR_CONFIGFILE, environ=environ
-        )
+        dls_multiconf_configfile = Envvar(Envvar.MULTICONF_CONFIGFILE, environ=environ)
 
         # Config file is explicitly named?
         if dls_multiconf_configfile.is_set:
@@ -95,12 +93,12 @@ class Multiconfs(Things):
             configurator_filename = dls_multiconf_configfile.value
             if not os.path.exists(configurator_filename):
                 raise RuntimeError(
-                    f"unable to find {Envvar.ECHOLOCATOR_CONFIGFILE} {configurator_filename}"
+                    f"unable to find {Envvar.MULTICONF_CONFIGFILE} {configurator_filename}"
                 )
         # Config file is not explicitly named?
         else:
             raise RuntimeError(
-                f"environment variable {Envvar.ECHOLOCATOR_CONFIGFILE} is not set"
+                f"environment variable {Envvar.MULTICONF_CONFIGFILE} is not set"
             )
 
         dls_multiconf = self.build_object(

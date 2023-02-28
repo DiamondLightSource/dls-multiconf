@@ -13,7 +13,8 @@ Converting from old Configurator usage:
 - change all Configurators to Multiconfs
 - change all xchembku_configurators_set_default to multiconfs_set_default
 - change all configurator to multiconf
-- change all "xchembku_lib.xchembku_multiconfs.yaml" to MulticonfThingTypes
+- change all chimpflow_datafaces_get_default to xchembku_datafaces_get_default
+- change all "xchembku_lib.xchembku_multiconfs.yaml" to MulticonfThingTypes.YAML
 - add from dls_multiconf_lib.constants import ThingTypes as MulticonfThingTypes
 
 ---------------------------
